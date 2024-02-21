@@ -24,6 +24,7 @@
                 Grid.ColumnSpan="4"
                 x:Name="CounterBtn"
                 Text="Open" 
+                Clicked="{Binding PickFolderCommand}"
                 HorizontalOptions="FillAndExpand" />
 
         <Frame Grid.Row="1"
