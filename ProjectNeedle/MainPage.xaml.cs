@@ -10,21 +10,26 @@ namespace ProjectNeedle
         public MainPage()
         {
             InitializeComponent();
+
+            folderBtn.Clicked += (s, e) => PickFolder();
+            exitBtn.Clicked += (s, e) => Close();
         }
 
-        [RelayCommand]
-        async Task PickFolder(, CancellationToken cancellationToken)
+
+        async void PickFolder()
         {
-            var result = await FolderPicker.Default.PickAsync(cancellationToken);
+            var result = await FolderPicker.PickAsync(default);
             if (result.IsSuccessful)
             {
-                await Toast.Make($"The folder was picked: Name - {result.Folder.Name}, Path - {result.Folder.Path}").Show(cancellationToken);
+                await Toast.Make($"The folder was picked: Name - {result.Folder.Name}, Path - {result.Folder.Path}").Show();
             }
             else
             {
-                await Toast.Make($"The folder was not picked with error: {result.Exception.Message}").Show(cancellationToken);
+                await Toast.Make($"The folder was not picked with error: {result.Exception.Message}").Show();
             }
         }
+
+        void Close() => Application.Current.Quit();
     }
 
 }

@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjectNeedle.MainPage">
-    
+    <ScrollView>
     <Grid 
-        Padding="10"
+        Padding="5"
         Margin="2"
-        ColumnSpacing="5">
+        ColumnSpacing="5"
+        RowSpacing="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="520"/>
+            <RowDefinition Height="600"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -22,25 +23,25 @@
 
         <Button Grid.Row="0"
                 Grid.ColumnSpan="4"
-                x:Name="CounterBtn"
+                x:Name="folderBtn"
                 Text="Open" 
-                Clicked="{Binding PickFolderCommand}"
                 HorizontalOptions="FillAndExpand" />
 
         <Frame Grid.Row="1"
                Grid.ColumnSpan="4"
-               HeightRequest="500"
                IsClippedToBounds="True"
                Padding="0"
                Margin="0">
             <Image Source="demo.jpg"
-                    HeightRequest="500"
-                Aspect="AspectFill"/>
+                   WidthRequest="500"
+                   VerticalOptions="Center"
+                   Aspect="AspectFill"/>
         </Frame>
 
         <Button Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="1"
+                x:Name="exitBtn"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="PaleVioletRed"
                 Text="Exit"/>
@@ -48,17 +49,18 @@
         <Button Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
+                x:Name="startBtn"
                 HorizontalOptions="FillAndExpand"
                 Text="Start"/>
         <VerticalStackLayout Grid.Row="3"
                              Grid.ColumnSpan="4"
-                             Margin="0,20,0,0"
-                             Spacing="15">
+                             Margin="0,5,0,0"
+                             Spacing="5">
             <ProgressBar Progress="100"
                          ></ProgressBar>
             <ProgressBar Progress="50"></ProgressBar>
             <ProgressBar Progress="010"/>
         </VerticalStackLayout>
     </Grid>
-
+    </ScrollView>
 </ContentPage>
